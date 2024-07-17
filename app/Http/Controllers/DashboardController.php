@@ -51,6 +51,28 @@ class DashboardController extends Controller
         
     }
 
+public function update(Request $request, Listing $listing)
+{
+    $formFields = $request->validate([
+        'title' => 'required',
+        'company' => 'required',
+        'price' => 'required|numeric',
+        'location' => 'required',
+        'description' => 'required',
+        'email' => 'required|email',
+        'website' => 'required|url',
+    ]);
+
+    if ($request->hasFile('logo')) {
+        $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+    }
+
+    $listing->update($formFields);
+
+    return redirect('/supplierDashboard')->with('success', 'Listing updated successfully');
+}
+
+
     public function logout()
     {
         Auth::logout();

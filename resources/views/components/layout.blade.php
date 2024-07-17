@@ -31,6 +31,13 @@
             <a href="/">
                 <img class="w-24" src="{{ asset('images/favicon-removebg-preview.png') }}" alt="" class="logo" />
             </a>
+
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="/#" class="text-black hover:text-blue-300 transition duration-300">About</a>
+                <a href="/#" class="text-black hover:text-blue-300 transition duration-300">Services</a>
+                <a href="/#" class="text-black hover:text-blue-300 transition duration-300">Contact</a>
+            </div>
+
             <ul class="flex space-x-6 mr-6 text-lg">
                 <li>
                     <a href="register" class="hover:text-laravel"

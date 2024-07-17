@@ -1,63 +1,66 @@
-<x-blank-card>
+<x-post_job_1-card>
     @include('partials.search')
 
-<a href="/supplierDashboard" class="inline-block text-black ml-4 mb-4"
-                ><i class="fa-solid fa-arrow-left"></i> Back
-            </a>
-            <div class="mx-4">
-                <x-card class="bg-black">
-                    <div
-                        class="flex flex-col items-center justify-center text-center"
-                    >
-                        <img
-                            id="logo"
-                            class="w-48 mr-6 mb-6"
-                             src="{{$listing -> logo ? asset('storage/' . $listing -> logo) : asset('images/no-image.png')}}"
-                            alt=""
-                        />
+    <a href="/supplierDashboard" class="inline-block text-black ml-4 mb-4">
+        <i class="fa-solid fa-arrow-left"></i> Back
+    </a>
+    <div class="max-w-lg mx-auto">
+        <x-card>
+            <form action="{{ route('listings.update', $listing->id) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
 
-                        <h3 id="title" class="text-2xl mb-2">{{$listing->title}}</h3>
-                        <div id="name" class="text-xl font-bold mb-4">{{$listing->company}} 
-                            <p id="price" class="text-xl font-bold mb-4">{{$listing->price}}</p>
-                        </div>
-                        <x-listing-tag :tagCSV="$listing->tags"/>
-                        <div class="text-lg my-4">
-                            <i class="fa-solid fa-location-dot"></i> {{$listing->location}}
-                            
-                        </div>
-                        <div class="border border-gray-200 w-full mb-6"></div>
-                        <div>
-                            <h3 class="text-3xl font-bold mb-4">
-                                Product Description
-                            </h3>
-                            <div class="text-lg space-y-6">
-                                {{$listing->description}}
-                                <br>
-                                <a
-                                    href="mailto:{{$listing->email}}"
-                                    class="block bg-laravel text-white mt-6 py-2 rounded-xl hover:opacity-80"
-                                    ><i class="fa-solid fa-envelope"></i>
-                                    Contact Employer</a
-                                >
+                <div class="text-center">
+                    <img
+                        id="logo"
+                        class="w-32 h-32 object-cover rounded-full mx-auto mb-4"
+                        src="{{ $listing->logo ? asset('storage/' . $listing->logo) : asset('images/no-image.png') }}"
+                        alt="Logo"
+                    />
+                    <input type="file" name="logo" class="block my-2 mx-auto">
 
-                                <a
-                                    href="{{$listing->website}}"
-                                    target="_blank"
-                                    class="block bg-black text-white py-2 rounded-xl hover:opacity-80"
-                                    ><i class="fa-solid fa-globe"></i> Visit
-                                    Website</a
-                                >
-                            </div>
-                        </div>
+                    <div class="mb-4">
+                        <label for="title" class="block text-gray-700 text-sm font-bold mb-2">Title</label>
+                        <input type="text" name="title" value="{{ $listing->title }}" class="bg-white text-black border border-gray-300 rounded p-2 w-full">
                     </div>
-                </x-card>
 
-<x-card class="mt-4 p-2 flex space-x-6">
-<a href="/listings/{{$listing->id}}/edit">
-<i class="fa-solid fa-pencil"></i>Edit
-</a>
+                    <div class="mb-4">
+                        <label for="company" class="block text-gray-700 text-sm font-bold mb-2">Company</label>
+                        <input type="text" name="company" value="{{ $listing->company }}" class="bg-white text-black border border-gray-300 rounded p-2 w-full">
+                    </div>
 
-</x-card>
+                    <div class="mb-4">
+                        <label for="price" class="block text-gray-700 text-sm font-bold mb-2">Price</label>
+                        <input type="text" name="price" value="{{ $listing->price }}" class="bg-white text-black border border-gray-300 rounded p-2 w-full">
+                    </div>
 
-            </div>
-</x-blank-card>
+                    <div class="mb-4">
+                        <label for="location" class="block text-gray-700 text-sm font-bold mb-2">Location</label>
+                        <input type="text" name="location" value="{{ $listing->location }}" class="bg-white text-black border border-gray-300 rounded p-2 w-full">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Product Description</label>
+                        <textarea name="description" class="bg-white text-black border border-gray-300 rounded p-2 w-full">{{ $listing->description }}</textarea>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                        <input type="text" name="email" value="{{ $listing->email }}" class="bg-white text-black border border-gray-300 rounded p-2 w-full">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="website" class="block text-gray-700 text-sm font-bold mb-2">Website</label>
+                        <input type="text" name="website" value="{{ $listing->website }}" class="bg-white text-black border border-gray-300 rounded p-2 w-full">
+                    </div>
+
+                    <div class="mt-4">
+                        <button type="submit" class="bg-blue-300 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            Update Listing
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </x-card>
+    </div>
+</x-post_job_1-card>

@@ -11,6 +11,11 @@ class Listing extends Model
 
     protected $fillable = ['user', 'title', 'tags', 'description', 'company', 'location', 'website', 'email', 'logo', 'price'];
 
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
     public function scopeFilter($query, array $filters)
     {
         if ($filters['tag'] ?? false) {

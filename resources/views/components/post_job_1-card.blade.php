@@ -40,7 +40,7 @@
             <button class="layout-menu-toggle navbar-nav align-items-xl-center d-xl-none" onclick="toggleSidebar()">
                 <i class="fa fa-bars fa-lg"></i>
             </button>
-            <a href="/">
+            <a href="/supplierDashboard">
                 <img class="w-24" src="{{ asset('images/favicon-removebg-preview.png') }}" alt="Logo" />
             </a>
         </div>
@@ -59,7 +59,6 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div id="userDropdown" class="absolute right-0 mt-2 w-auto bg-white text-black rounded-md shadow-lg hidden dropdown-content">
-                    <a href="{{route('showCart')}}" class="px-4 py-2 hover:bg-gray-100"><i class="fa fa-user mr-2"></i></a>
                     <a href="#" class="px-4 py-2 hover:bg-gray-100"><i class="fa fa-cog mr-2"></i></a>
                     <a href="{{ route('logout') }}" class="px-4 py-2 hover:bg-gray-100" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="fa fa-sign-out-alt mr-2"></i></a>
@@ -98,7 +97,6 @@
     
     <footer class="fixed bottom-0 left-0 w-full flex items-center justify-start font-bold bg-laravel text-black h-24 mt-24 opacity-90 md:justify-center">
         <p class="ml-2">Copyright &copy; 2024, All Rights Reserved</p>
-        
     </footer>
 
     <script>

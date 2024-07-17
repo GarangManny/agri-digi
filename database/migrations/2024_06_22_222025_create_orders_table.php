@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('unit_price');
             $table->string('quantity');
             $table->string('total_price');
+            $table->string('logo');
             $table->string('email');
             $table->string('name');
             $table->string('location');

@@ -1,18 +1,18 @@
-<x-post_job-card>
+<x-blank-card>
     @include('partials.supplier_hero')
     @include('partials.search')
 
     <div class="lg:grid lg:grid-cols-3 gap-4 space-y-4 md:space-y-0 mx-4">
-        @unless(count($listings) == 0)
-            @foreach ($listings as $listing)
-                <x-supplier-card :listing="$listing"/>
+        @unless(count($orders) == 0)
+            @foreach ($orders as $order)
+                <x-showCart-card :order="$order"/>
             @endforeach
         @else
-            <p>No Listings Found</p>
+            <p>cart is empty</p>
         @endunless
     </div>
 
     <div class="mt-6 p-4">
-        {{ $listings->links() }}
+        {{ $orders->links() }}
     </div>
-</x-post_job-card>
+</x-blank-card>

@@ -40,14 +40,14 @@
             <button class="layout-menu-toggle navbar-nav align-items-xl-center d-xl-none" onclick="toggleSidebar()">
                 <i class="fa fa-bars fa-lg"></i>
             </button>
-            <a href="/">
+            <a href="/supplierDashboard">
                 <img class="w-24" src="{{ asset('images/favicon-removebg-preview.png') }}" alt="Logo" />
             </a>
         </div>
         <div class="hidden md:flex items-center space-x-6">
-            <a href="/about" class="text-black hover:text-blue-300 transition duration-300">About</a>
-            <a href="/services" class="text-black hover:text-blue-300 transition duration-300">Services</a>
-            <a href="/contact" class="text-black hover:text-blue-300 transition duration-300">Contact</a>
+            <a href="/#" class="text-black hover:text-blue-300 transition duration-300">About</a>
+            <a href="/#" class="text-black hover:text-blue-300 transition duration-300">Services</a>
+            <a href="/#" class="text-black hover:text-blue-300 transition duration-300">Contact</a>
         </div>
         
         
@@ -55,11 +55,10 @@
             <div class="relative">
                 <button class="flex items-center space-x-2" onclick="toggleDropdown()">
                     <img src="{{ asset('images/user-image.png') }}" alt="User Image" class="w-10 h-10 rounded-full" />
-                    <span class="hidden md:inline">{{ Auth::user()->name }}</span>
+                    <span class="hidden md:inline text-blue-300">{{ Auth::user()->name }}</span>
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div id="userDropdown" class="absolute right-0 mt-2 w-auto bg-white text-black rounded-md shadow-lg hidden dropdown-content">
-                    <a href="#" class="px-4 py-2 hover:bg-gray-100"><i class="fa fa-user mr-2"></i></a>
                     <a href="#" class="px-4 py-2 hover:bg-gray-100"><i class="fa fa-cog mr-2"></i></a>
                     <a href="{{ route('logout') }}" class="px-4 py-2 hover:bg-gray-100" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="fa fa-sign-out-alt mr-2"></i></a>
@@ -101,7 +100,7 @@
         <a
             href="/supplierDashboard/create"
             class="absolute top-1/3 right-10 bg-black text-white py-2 px-5"
-            >Post Job
+            >Post Product
         </a>
     </footer>
 

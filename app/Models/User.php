@@ -23,4 +23,8 @@ class User extends Authenticatable
         'account_type',
         'location'
     ];
+    public function reviews()
+    {
+         return $this->hasMany(Review::class);
+    }
 }

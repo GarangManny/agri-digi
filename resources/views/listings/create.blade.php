@@ -1,13 +1,14 @@
 @props(['user'])
 
-<x-blank-card>
+<x-post_job_1-card>
     <x-card class="p-10 max-w-lg mx-auto mt-24">
         <header class="text-center">
-            <h2 class="text-2xl font-bold uppercase mb-1">Welcome Back {{$user->name}} <br> Create a Product Listing
+            <h2 class="text-2xl font-bold uppercase mb-1">Welcome Back {{$user->name}}
             </h2>
+            <h3 class="text-1xl font-bold uppercase mb-1">Create a Product Listing</h3>
         </header>
 
-        <form method="POST" action="/supplierDashboard" enctype="multipart/form-data">
+        <form method="POST" action="{{route('storeProduct')}}" enctype="multipart/form-data">
             @csrf
 
             <div class="mb-6">
@@ -80,4 +81,4 @@
             </div>
         </form>
     </x-card>
-</x-blank-card>
+</x-post_job_1-card>

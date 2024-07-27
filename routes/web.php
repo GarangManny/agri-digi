@@ -22,7 +22,7 @@ Route::get('/login', [AuthController::class, 'show']);
 Route::middleware(['auth'])->group(function () {
     Route::get('/supplierDashboard', [DashboardController::class, 'supplierDashboard'])->name('supplierDashboard');
     Route::get('/supplierDashboard/create', [DashboardController::class, 'create' ]);
-    Route::post('/supplierDashboard',[listingController::class, 'store'])->name('storeroduct');
+    Route::post('/supplierDashboard',[listingController::class, 'store'])->name('storeProduct');
     Route::get('/supplierDashboard/{listing}',[DashboardController::class, 'edit']);
     Route::put('/supplierDashboard/{listing}/edit', [DashboardController::class, 'update'])->name('listings.update');
     Route::get('/farmerDashboard', [DashboardController::class, 'farmerDashboard'])->name('farmerDashboard');
